@@ -7,45 +7,56 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     .mono { font-family: 'JetBrains+Mono', monospace; }
 
-    /* Minimalist Dark Grid Backdrop */
     .bg-grid {
-      background-size: 40px 40px;
+      background-size: 36px 36px;
       background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+
+    .glow-red {
+      box-shadow: 0 0 45px -10px rgba(239, 68, 68, 0.35);
     }
   </style>
 </head>
-<body class="bg-[#07090e] text-slate-100 min-h-screen selection:bg-red-500 selection:text-white relative bg-grid">
+<body class="bg-[#05070d] text-slate-100 min-h-screen selection:bg-red-600 selection:text-white relative bg-grid overflow-x-hidden">
 
-  <!-- Minimal Nav -->
-  <nav class="sticky top-0 z-50 bg-[#07090e]/85 backdrop-blur-md border-b border-white/5 px-6 py-4">
-    <div class="max-w-4xl mx-auto flex items-center justify-between">
-      <a href="#" class="font-extrabold tracking-tight text-white flex items-center gap-2">
-        <span class="w-7 h-7 rounded bg-red-600 text-white flex items-center justify-center font-mono font-bold text-xs">AG</span>
-        <span>Alexys Gomez</span>
+  <!-- Ambient light blobs -->
+  <div class="fixed -top-40 -left-40 w-96 h-96 bg-red-600/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="fixed top-1/2 -right-40 w-96 h-96 bg-red-800/10 rounded-full blur-3xl pointer-events-none"></div>
+
+  <!-- Navigation -->
+  <nav class="sticky top-0 z-50 bg-[#05070d]/85 backdrop-blur-md border-b border-white/5 px-6 py-4">
+    <div class="max-w-5xl mx-auto flex items-center justify-between">
+      <a href="#" class="font-extrabold tracking-tight text-white flex items-center gap-2.5 group">
+        <span class="w-8 h-8 rounded-lg bg-red-600/20 border border-red-500/30 text-red-400 flex items-center justify-center font-mono font-bold text-xs group-hover:border-red-400 transition">AG</span>
+        <span class="tracking-tight text-slate-200 group-hover:text-red-400 transition">Alexys Gomez</span>
       </a>
-      <div class="flex items-center gap-6 text-xs font-medium text-slate-400">
+      <div class="hidden sm:flex items-center gap-7 text-xs font-semibold text-slate-400">
         <a href="#about" class="hover:text-red-400 transition">About</a>
-        <a href="#skills" class="hover:text-red-400 transition">Skills</a>
-        <a href="#projects" class="hover:text-red-400 transition">Projects</a>
+        <a href="#projects" class="hover:text-red-400 transition">Systems & Projects</a>
+        <a href="#skills" class="hover:text-red-400 transition">Technical Stack</a>
         <a href="#contact" class="hover:text-red-400 transition">Contact</a>
-        <a href="https://github.com/alexysgomez27" target="_blank" class="text-slate-300 hover:text-white transition">
-          <i class="fa-brands fa-github text-sm"></i>
-        </a>
       </div>
+      <a href="https://github.com/alexysgomez27" target="_blank" class="px-3 py-1.5 rounded-lg border border-white/10 bg-white/5 text-xs font-mono text-slate-300 hover:text-white hover:border-red-500/50 transition flex items-center gap-2">
+        <i class="fa-brands fa-github text-sm"></i>
+        <span>alexysgomez27</span>
+      </a>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <header class="min-h-[75vh] flex flex-col items-center justify-center text-center px-6 relative">
-    <div class="absolute w-96 h-96 bg-red-600/10 rounded-full blur-3xl pointer-events-none -top-10"></div>
+  <header id="about" class="min-h-[82vh] flex flex-col items-center justify-center text-center px-6 relative py-12">
+    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-mono mb-6">
+      <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+      Rutgers Business School • Management Information Systems (MIS)
+    </div>
 
-    <p class="text-xs sm:text-sm font-bold uppercase tracking-[0.3em] text-red-500 mb-4 mono">
+    <p class="text-xs sm:text-sm font-bold uppercase tracking-[0.35em] text-red-500 mb-3 mono">
       PORTFOLIO
     </p>
 
@@ -53,156 +64,144 @@
       Alexys Gomez
     </h1>
 
-    <h2 class="text-lg sm:text-2xl font-bold text-red-500 mb-3">
+    <h2 class="text-xl sm:text-3xl font-extrabold text-red-500 mb-4 tracking-tight">
       Management Information Systems
     </h2>
 
-    <p class="text-sm sm:text-base text-slate-400 max-w-md mx-auto mb-10 leading-relaxed font-normal">
-      Rutgers Business School • Bridging database systems, business operations, and enterprise technology.
+    <p class="text-sm sm:text-base text-slate-400 max-w-xl mx-auto mb-10 leading-relaxed font-normal">
+      Designing relational database schemas (3NF), client-side browser architectures, and enterprise operations telemetry to turn complex business workflows into clear, actionable systems.
     </p>
 
     <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
-      <a href="#projects" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-sm tracking-wide transition shadow-lg shadow-red-600/25 text-center">
-        View My Work
+      <a href="#projects" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-sm tracking-wide transition shadow-lg shadow-red-600/30 text-center flex items-center justify-center gap-2">
+        <i class="fa-solid fa-layer-group text-xs"></i> View My Work
       </a>
       <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 rounded-xl border-2 border-red-500/80 hover:border-red-400 text-red-400 hover:text-white hover:bg-red-500/10 font-bold text-sm tracking-wide transition text-center">
         Contact Me
       </a>
     </div>
+
+    <!-- Quick stats strip -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl w-full mt-16 pt-10 border-t border-white/5 font-mono text-center">
+      <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+        <div class="text-xl font-bold text-white">3NF</div>
+        <div class="text-[11px] text-slate-400 uppercase tracking-wider mt-0.5">Database Normalization</div>
+      </div>
+      <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+        <div class="text-xl font-bold text-white">PostgreSQL</div>
+        <div class="text-[11px] text-slate-400 uppercase tracking-wider mt-0.5">Relational Modeling</div>
+      </div>
+      <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+        <div class="text-xl font-bold text-white">Web Audio</div>
+        <div class="text-[11px] text-slate-400 uppercase tracking-wider mt-0.5">Browser Audio Synthesis</div>
+      </div>
+      <div class="p-3 rounded-xl bg-white/[0.02] border border-white/5">
+        <div class="text-xl font-bold text-white">RBS Newark</div>
+        <div class="text-[11px] text-slate-400 uppercase tracking-wider mt-0.5">New Jersey Based</div>
+      </div>
+    </div>
   </header>
 
-  <!-- About Me Section -->
-  <section id="about" class="py-20 px-6 max-w-4xl mx-auto border-t border-white/5">
-    <div class="mb-10">
-      <span class="text-xs font-mono font-bold tracking-widest text-red-500 uppercase">About Me</span>
-      <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Who I Am</h3>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-      <div class="md:col-span-8 space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+  <!-- Interactive Terminal & Bio -->
+  <section class="py-12 px-6 max-w-5xl mx-auto border-t border-white/5">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <!-- Bio summary -->
+      <div class="lg:col-span-6 space-y-4 text-slate-300 text-sm leading-relaxed">
+        <span class="text-xs font-mono font-bold tracking-widest text-red-500 uppercase">Background</span>
+        <h3 class="text-2xl font-bold text-white">Who I Am</h3>
         <p>
-          I'm an undergraduate student majoring in <strong class="text-white">Management Information Systems (MIS)</strong> at <strong class="text-white">Rutgers Business School – Newark</strong>. My coursework and technical projects center around database architecture, enterprise operations analytics, and web systems.
+          I am an undergraduate student majoring in <strong class="text-white">Management Information Systems (MIS)</strong> at <strong class="text-white">Rutgers Business School – Newark</strong>. My work bridges structured relational databases, enterprise business process analysis, and accessible web systems.
         </p>
         <p>
-          I focus on building structured, reliable digital solutions—from designing third normal form (3NF) relational databases to developing responsive front-end tools. I am particularly interested in how enterprise systems and technology controls streamline workflows, improve data integrity, and support organizational decisions.
+          I focus on turning operational complexity into structured clarity—whether that means drafting strict third normal form (3NF) relational architectures with entity integrity constraints or building interactive tools with JavaScript and the native Web Audio API.
         </p>
-        <p class="text-slate-400 text-sm">
-          Outside of coursework and technical projects, I enjoy fantasy sports analytics, video games, and exploring systems optimization.
+        <p class="text-slate-400 text-xs">
+          Passionate about sports analytics, systems efficiency, and continuous tech architecture improvement.
         </p>
       </div>
 
-      <!-- Quick Metrics Grid -->
-      <div class="md:col-span-4 grid grid-cols-2 gap-3 font-mono">
-        <div class="bg-slate-900/60 border border-white/5 p-4 rounded-xl text-center">
-          <p class="text-2xl font-black text-red-500">3+</p>
-          <p class="text-[11px] text-slate-400 uppercase tracking-wider mt-1">Technical Projects</p>
+      <!-- Interactive Shell Terminal -->
+      <div class="lg:col-span-6 bg-[#080b12] border border-white/10 rounded-2xl overflow-hidden shadow-2xl font-mono text-xs">
+        <div class="bg-black/60 px-4 py-2.5 border-b border-white/5 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+            <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+          </div>
+          <span class="text-[11px] text-slate-400">bash — agomez@rutgers-mis</span>
+          <span class="text-[10px] text-red-400">INTERACTIVE SHELL</span>
         </div>
-        <div class="bg-slate-900/60 border border-white/5 p-4 rounded-xl text-center">
-          <p class="text-2xl font-black text-red-500">3NF</p>
-          <p class="text-[11px] text-slate-400 uppercase tracking-wider mt-1">Relational Design</p>
+        <div class="p-4 space-y-2 h-56 overflow-y-auto text-slate-300" id="termOutput">
+          <p class="text-slate-500">// Type 'help', 'skills', 'projects', or 'contact'</p>
+          <p><span class="text-red-400">guest@alexys:~$</span> whoami</p>
+          <p class="text-slate-300">&gt; Alexys Gomez | MIS Major @ Rutgers Business School Newark</p>
+          <p class="text-slate-400">&gt; Core Focus: 3NF Relational DBs, Business Telemetry, Modern Web Systems</p>
         </div>
-        <div class="bg-slate-900/60 border border-white/5 p-4 rounded-xl text-center">
-          <p class="text-2xl font-black text-red-500">MIS</p>
-          <p class="text-[11px] text-slate-400 uppercase tracking-wider mt-1">Rutgers Newark</p>
-        </div>
-        <div class="bg-slate-900/60 border border-white/5 p-4 rounded-xl text-center">
-          <p class="text-2xl font-black text-red-500">NJ</p>
-          <p class="text-[11px] text-slate-400 uppercase tracking-wider mt-1">Based in NJ</p>
+        <div class="p-3 bg-white/[0.02] border-t border-white/5 flex items-center gap-2">
+          <span class="text-red-400 text-xs font-bold">$</span>
+          <input type="text" id="termInput" onkeydown="runTerminalCommand(event)" placeholder="type 'help' or command here..." class="bg-transparent text-white text-xs focus:outline-none w-full">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Tools & Skills Section -->
-  <section id="skills" class="py-16 px-6 max-w-4xl mx-auto border-t border-white/5">
-    <div class="mb-8">
-      <span class="text-xs font-mono font-bold tracking-widest text-red-500 uppercase">Tools I Use</span>
-      <h3 class="text-2xl font-extrabold text-white mt-1">Skills & Technologies</h3>
-    </div>
-
-    <!-- Skills Badges with Icons -->
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono">
-      <div class="bg-slate-900/50 border border-white/5 hover:border-red-500/40 p-3.5 rounded-xl flex items-center gap-3 transition">
-        <i class="fa-brands fa-python text-red-400 text-lg"></i>
-        <span class="text-slate-200 font-semibold">Python</span>
-      </div>
-      <div class="bg-slate-900/50 border border-white/5 hover:border-red-500/40 p-3.5 rounded-xl flex items-center gap-3 transition">
-        <i class="fa-solid fa-database text-red-400 text-lg"></i>
-        <span class="text-slate-200 font-semibold">PostgreSQL</span>
-      </div>
-      <div class="bg-slate-900/50 border border-white/5 hover:border-red-500/40 p-3.5 rounded-xl flex items-center gap-3 transition">
-        <i class="fa-solid fa-server text-red-400 text-lg"></i>
-        <span class="text-slate-200 font-semibold">Relational (3NF)</span>
-      </div>
-      <div class="bg-slate-900/50 border border-white/5 hover:border-red-500/40 p-3.5 rounded-xl flex items-center gap-3 transition">
-        <i class="fa-brands fa-js text-red-400 text-lg"></i>
-        <span class="text-slate-200 font-semibold">JavaScript</span>
-      </div>
-      <div class="bg-slate-900/50 border border-white/5 hover:border-red-500/40 p-3.5 rounded-xl flex items-center gap-3 transition">
-        <i class="fa-brands fa-html5 text-red-400 text-lg"></i>
-        <span class="text-slate-200 font-semibold">HTML5 / CSS3</span>
-      </div>
-      <div class="bg-slate-900/50 border border-white/5 hover:border-red-500/40 p-3.5 rounded-xl flex items-center gap-3 transition">
-        <i class="fa-solid fa-wind text-red-400 text-lg"></i>
-        <span class="text-slate-200 font-semibold">Tailwind CSS</span>
-      </div>
-      <div class="bg-slate-900/50 border border-white/5 hover:border-red-500/40 p-3.5 rounded-xl flex items-center gap-3 transition">
-        <i class="fa-brands fa-git-alt text-red-400 text-lg"></i>
-        <span class="text-slate-200 font-semibold">Git & GitHub</span>
-      </div>
-      <div class="bg-slate-900/50 border border-white/5 hover:border-red-500/40 p-3.5 rounded-xl flex items-center gap-3 transition">
-        <i class="fa-solid fa-chart-line text-red-400 text-lg"></i>
-        <span class="text-slate-200 font-semibold">Operations Telemetry</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="py-20 px-6 max-w-4xl mx-auto border-t border-white/5">
+  <!-- Featured Projects & Live Interactive Modules -->
+  <section id="projects" class="py-20 px-6 max-w-5xl mx-auto border-t border-white/5">
     <div class="mb-12">
-      <span class="text-xs font-mono font-bold tracking-widest text-red-500 uppercase">My Work</span>
-      <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Featured Projects</h3>
+      <span class="text-xs font-mono font-bold tracking-widest text-red-500 uppercase">Interactive Systems</span>
+      <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Production Deliverables & Case Studies</h3>
+      <p class="text-xs sm:text-sm text-slate-400 mt-1">Explore live web systems, interactive telemetry, and relational schema sandboxes.</p>
     </div>
 
-    <div class="space-y-6">
+    <div class="space-y-10">
 
-      <!-- MindfulClassroom Project Card -->
-      <div class="bg-slate-900/40 border border-white/5 hover:border-red-500/30 rounded-2xl p-6 sm:p-8 transition">
-        <span class="text-[11px] font-mono font-bold text-red-400 uppercase tracking-wider">Educational Technology</span>
-        <h4 class="text-xl font-bold text-white mt-1 mb-2">MindfulClassroom Educational Web App</h4>
-        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
-          Engineered an interactive student wellness platform featuring automated Box (4-4-4-4) and Calm (4-7-8) breathing regimens. Built with pure Web Audio API sound synthesis for zero external audio dependencies alongside real-time cycle telemetry.
-        </p>
-        <div class="flex flex-wrap gap-2 mb-6 text-[11px] mono">
-          <span class="px-2.5 py-1 rounded bg-black/40 text-slate-300 border border-white/10">JavaScript</span>
-          <span class="px-2.5 py-1 rounded bg-black/40 text-slate-300 border border-white/10">Tailwind CSS</span>
-          <span class="px-2.5 py-1 rounded bg-black/40 text-slate-300 border border-white/10">Web Audio API</span>
+      <!-- PROJECT 1: APEXCARE RELATIONAL SYSTEM & SQL SANDBOX -->
+      <div class="bg-slate-900/40 border border-white/10 hover:border-red-500/30 rounded-2xl p-6 sm:p-8 transition">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+          <div>
+            <span class="text-[11px] font-mono font-bold text-red-400 uppercase tracking-wider">Healthcare Systems • Relational PostgreSQL</span>
+            <h4 class="text-xl sm:text-2xl font-bold text-white mt-1">ApexCare Clinical Hospital Management System</h4>
+          </div>
+          <span class="px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-mono self-start sm:self-auto">
+            3NF Architecture
+          </span>
         </div>
-        <div class="flex items-center gap-5 text-xs font-bold">
-          <a href="https://alexysgomez27.github.io/mindful-classroom-app/" target="_blank" class="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-500 text-white transition flex items-center gap-2">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
-          </a>
-          <a href="https://github.com/alexysgomez27/mindful-classroom-app" target="_blank" class="text-slate-400 hover:text-white transition flex items-center gap-1.5 font-mono">
-            View on GitHub &rarr;
-          </a>
-        </div>
-      </div>
 
-      <!-- ApexCare Hospital Project Card -->
-      <div class="bg-slate-900/40 border border-white/5 hover:border-red-500/30 rounded-2xl p-6 sm:p-8 transition">
-        <span class="text-[11px] font-mono font-bold text-red-400 uppercase tracking-wider">Healthcare Systems & Relational Data</span>
-        <h4 class="text-xl font-bold text-white mt-1 mb-2">ApexCare Clinical Hospital Portal</h4>
-        <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
-          Architected a third normal form (3NF) clinical database schema modeling inpatient admissions, room allocations, attending physicians, and ICD-10 diagnostic codes. Paired with a live operational bed capacity dashboard.
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
+          Architected a 3NF normalized clinical relational schema modeling 4 primary business entities: Departments, Attending Physicians, Master Patient Index, and Active Inpatient Admissions. Includes real-time bed occupancy telemetry and transactional validation.
         </p>
+
+        <!-- Live SQL Query Simulator within the Card -->
+        <div class="bg-[#080b12] border border-white/10 rounded-xl p-4 mb-6">
+          <div class="flex flex-wrap items-center justify-between gap-3 mb-3 pb-3 border-b border-white/5">
+            <span class="text-xs font-mono text-slate-400 flex items-center gap-2">
+              <i class="fa-solid fa-terminal text-red-400"></i> Interactive SQL Sandbox
+            </span>
+            <div class="flex flex-wrap gap-2 text-[11px] font-mono">
+              <button onclick="runQuery('icu')" class="px-2.5 py-1 rounded bg-white/5 hover:bg-red-500/20 text-slate-300 hover:text-red-300 border border-white/5 transition">ICU Load %</button>
+              <button onclick="runQuery('admissions')" class="px-2.5 py-1 rounded bg-white/5 hover:bg-red-500/20 text-slate-300 hover:text-red-300 border border-white/5 transition">Bed Census</button>
+              <button onclick="runQuery('insurance')" class="px-2.5 py-1 rounded bg-white/5 hover:bg-red-500/20 text-slate-300 hover:text-red-300 border border-white/5 transition">Payer Mix</button>
+            </div>
+          </div>
+          <div id="sqlDisplay" class="font-mono text-xs text-amber-300/90 mb-3 bg-black/40 p-2.5 rounded border border-white/5 overflow-x-auto">
+            SELECT dept_name, count(room_code) as occupied, round((count(room_code)::numeric / total_beds)*100, 1) as occupancy_rate FROM admissions GROUP BY dept_name;
+          </div>
+          <div id="sqlResult" class="font-mono text-xs text-slate-300 bg-black/60 p-3 rounded border border-white/5 overflow-x-auto">
+            <div class="text-slate-400 text-[11px] mb-1">&gt; Telemetry Result: 164 occupied / 200 total beds (82.4% overall hospital occupancy).</div>
+            <div class="text-red-400 text-[11px]">&gt; Alert: ICU at 91.6% capacity (Surge protocols recommended).</div>
+          </div>
+        </div>
+
         <div class="flex flex-wrap gap-2 mb-6 text-[11px] mono">
           <span class="px-2.5 py-1 rounded bg-black/40 text-slate-300 border border-white/10">PostgreSQL</span>
-          <span class="px-2.5 py-1 rounded bg-black/40 text-slate-300 border border-white/10">Relational 3NF</span>
-          <span class="px-2.5 py-1 rounded bg-black/40 text-slate-300 border border-white/10">Capacity Telemetry</span>
+          <span class="px-2.5 py-1 rounded bg-black/40 text-slate-300 border border-white/10">3NF Normalization</span>
+          <span class="px-2.5 py-1 rounded bg-black/40 text-slate-300 border border-white/10">Clinical Telemetry</span>
+          <span class="px-2.5 py-1 rounded bg-black/40 text-slate-300 border border-white/10">Referential Integrity</span>
         </div>
-        <div class="flex items-center gap-5 text-xs font-bold">
-          <a href="https://alexysgomez27.github.io/hospital-operations-portal/" target="_blank" class="px-4 py-2 rounded-lg bg-red-600 hover:bg-red-500 text-white transition flex items-center gap-2">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Dashboard
+
+        <div class="flex flex-wrap items-center gap-5 text-xs font-bold pt-2">
+          <a href="https://alexysgomez27.github.io/hospital-operations-portal/" target="_blank" class="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-500 text-white transition flex items-center gap-2 shadow-lg shadow-red-600/20">
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Live Dashboard
           </a>
           <a href="https://github.com/alexysgomez27/hospital-operations-portal" target="_blank" class="text-slate-400 hover:text-white transition flex items-center gap-1.5 font-mono">
             View on GitHub &rarr;
@@ -210,15 +209,134 @@
         </div>
       </div>
 
+      <!-- PROJECT 2: MINDFULCLASSROOM APP & AUDIO SYNTH -->
+      <div class="bg-slate-900/40 border border-white/10 hover:border-red-500/30 rounded-2xl p-6 sm:p-8 transition">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
+          <div>
+            <span class="text-[11px] font-mono font-bold text-red-400 uppercase tracking-wider">Educational Technology • Web Audio API</span>
+            <h4 class="text-xl sm:text-2xl font-bold text-white mt-1">MindfulClassroom Educational Web App</h4>
+          </div>
+          <span class="px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-mono self-start sm:self-auto">
+            Client-Side Architecture
+          </span>
+        </div>
+
+        <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
+          Designed an interactive regulation and focus application for classroom environments. Implements precise interval timing for Box (4-4-4-4) and Calm (4-7-8) breathing regimens paired with synthesized pure-tone audio feedback generated directly via the browser's Web Audio API.
+        </p>
+
+        <!-- Interactive Audio Synth Preview Widget -->
+        <div class="bg-[#080b12] border border-white/10 rounded-xl p-4 mb-6">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-xs font-mono text-slate-300 font-bold">Web Audio Synthesis Sandbox</p>
+              <p class="text-[11px] text-slate-500">Zero external sound files; audio oscillates mathematically in the browser.</p>
+            </div>
+            <div class="flex gap-2">
+              <button onclick="playSynthTone(440, 'sine')" class="px-3 py-1.5 rounded-lg bg-red-600/20 border border-red-500/40 text-red-300 hover:bg-red-600 hover:text-white text-xs font-mono transition flex items-center gap-2">
+                <i class="fa-solid fa-volume-high text-xs"></i> 440 Hz Inhale Tone
+              </button>
+              <button onclick="playSynthTone(330, 'triangle')" class="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 text-xs font-mono transition flex items-center gap-2">
+                <i class="fa-solid fa-volume-low text-xs"></i> 330 Hz Exhale Tone
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-6 text-[11px] mono">
+          <span class="px-2.5 py-1 rounded bg-black/40 text-slate-300 border border-white/10">JavaScript (ES6+)</span>
+          <span class="px-2.5 py-1 rounded bg-black/40 text-slate-300 border border-white/10">Tailwind CSS</span>
+          <span class="px-2.5 py-1 rounded bg-black/40 text-slate-300 border border-white/10">Web Audio API</span>
+          <span class="px-2.5 py-1 rounded bg-black/40 text-slate-300 border border-white/10">DOM Event Lifecycle</span>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-5 text-xs font-bold pt-2">
+          <a href="https://alexysgomez27.github.io/mindful-classroom-app/" target="_blank" class="px-5 py-2.5 rounded-xl bg-red-600 hover:bg-red-500 text-white transition flex items-center gap-2 shadow-lg shadow-red-600/20">
+            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i> Live Demo
+          </a>
+          <a href="https://github.com/alexysgomez27/mindful-classroom-app" target="_blank" class="text-slate-400 hover:text-white transition flex items-center gap-1.5 font-mono">
+            View on GitHub &rarr;
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Technical Competencies & Tools -->
+  <section id="skills" class="py-20 px-6 max-w-5xl mx-auto border-t border-white/5">
+    <div class="mb-10">
+      <span class="text-xs font-mono font-bold tracking-widest text-red-500 uppercase">Capabilities</span>
+      <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Tools & Technical Competencies</h3>
+    </div>
+
+    <!-- Badge Grid with official icons -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs font-mono mb-10">
+      <div class="bg-slate-900/40 border border-white/5 hover:border-red-500/40 p-4 rounded-xl flex items-center gap-3 transition">
+        <i class="fa-brands fa-python text-red-500 text-xl"></i>
+        <span class="text-slate-200 font-semibold">Python</span>
+      </div>
+      <div class="bg-slate-900/40 border border-white/5 hover:border-red-500/40 p-4 rounded-xl flex items-center gap-3 transition">
+        <i class="fa-solid fa-database text-red-500 text-xl"></i>
+        <span class="text-slate-200 font-semibold">PostgreSQL</span>
+      </div>
+      <div class="bg-slate-900/40 border border-white/5 hover:border-red-500/40 p-4 rounded-xl flex items-center gap-3 transition">
+        <i class="fa-solid fa-diagram-project text-red-500 text-xl"></i>
+        <span class="text-slate-200 font-semibold">Relational (3NF)</span>
+      </div>
+      <div class="bg-slate-900/40 border border-white/5 hover:border-red-500/40 p-4 rounded-xl flex items-center gap-3 transition">
+        <i class="fa-brands fa-js text-red-500 text-xl"></i>
+        <span class="text-slate-200 font-semibold">JavaScript (ES6+)</span>
+      </div>
+      <div class="bg-slate-900/40 border border-white/5 hover:border-red-500/40 p-4 rounded-xl flex items-center gap-3 transition">
+        <i class="fa-brands fa-html5 text-red-500 text-xl"></i>
+        <span class="text-slate-200 font-semibold">HTML5 Semantic</span>
+      </div>
+      <div class="bg-slate-900/40 border border-white/5 hover:border-red-500/40 p-4 rounded-xl flex items-center gap-3 transition">
+        <i class="fa-solid fa-wind text-red-500 text-xl"></i>
+        <span class="text-slate-200 font-semibold">Tailwind CSS</span>
+      </div>
+      <div class="bg-slate-900/40 border border-white/5 hover:border-red-500/40 p-4 rounded-xl flex items-center gap-3 transition">
+        <i class="fa-brands fa-git-alt text-red-500 text-xl"></i>
+        <span class="text-slate-200 font-semibold">Git & GitHub</span>
+      </div>
+      <div class="bg-slate-900/40 border border-white/5 hover:border-red-500/40 p-4 rounded-xl flex items-center gap-3 transition">
+        <i class="fa-solid fa-chart-line text-red-500 text-xl"></i>
+        <span class="text-slate-200 font-semibold">Operations Telemetry</span>
+      </div>
+    </div>
+
+    <!-- 3 Domain pillars -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs leading-relaxed">
+      <div class="p-5 rounded-2xl bg-white/[0.02] border border-white/5 space-y-2">
+        <div class="text-red-400 font-bold text-sm flex items-center gap-2">
+          <i class="fa-solid fa-server"></i> Relational Systems
+        </div>
+        <p class="text-slate-400">Database normalization (1NF through 3NF), entity-relationship integrity, surrogate key architecture, and diagnostic grouping.</p>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-white/[0.02] border border-white/5 space-y-2">
+        <div class="text-red-400 font-bold text-sm flex items-center gap-2">
+          <i class="fa-solid fa-code"></i> Frontend Engineering
+        </div>
+        <p class="text-slate-400">DOM event life cycle, zero-dependency browser Web Audio API, responsive utility UI design via Tailwind CSS, and GitHub Pages deployments.</p>
+      </div>
+
+      <div class="p-5 rounded-2xl bg-white/[0.02] border border-white/5 space-y-2">
+        <div class="text-red-400 font-bold text-sm flex items-center gap-2">
+          <i class="fa-solid fa-briefcase"></i> Enterprise Operations
+        </div>
+        <p class="text-slate-400">Business operations modeling, process documentation, IT system controls, and translating operational goals into technical specifications.</p>
+      </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-24 px-6 max-w-xl mx-auto text-center border-t border-white/5">
-    <span class="text-xs font-mono font-bold tracking-widest text-red-500 uppercase">Get In Touch</span>
+  <section id="contact" class="py-24 px-6 max-w-2xl mx-auto text-center border-t border-white/5">
+    <span class="text-xs font-mono font-bold tracking-widest text-red-500 uppercase">Let's Connect</span>
     <h3 class="text-3xl font-extrabold text-white mt-1 mb-3">Contact Me</h3>
     <p class="text-slate-400 text-sm mb-10 leading-relaxed font-normal">
-      Feel free to reach out directly regarding opportunities, collaborations, or inquiries.
+      Feel free to reach out regarding system development opportunities, academic collaborations, or inquiries.
     </p>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
@@ -237,3 +355,86 @@
       <a href="https://www.linkedin.com/in/alexys-gomez-388719335/" target="_blank" class="p-4 rounded-xl bg-slate-900/50 border border-white/5 hover:border-red-500/50 transition group flex items-center gap-3">
         <div class="w-10 h-10 rounded-lg bg-red-600/10 border border-red-500/20 text-red-400 flex items-center justify-center text-sm group-hover:scale-105 transition">
           <i class="fa-brands fa-linkedin-in"></i>
+        </div>
+        <div class="overflow-hidden">
+          <p class="text-[10px] text-slate-400 mono">Connect on LinkedIn</p>
+          <p class="text-xs font-bold text-white truncate group-hover:text-red-400 transition">Alexys Gomez</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 px-6 text-center text-xs text-slate-600 border-t border-white/5 mono">
+    © 2026 Alexys Gomez • Rutgers Business School – Management Information Systems
+  </footer>
+
+  <script>
+    // Web Audio Synthesizer
+    let audioContext = null;
+    function playSynthTone(frequency, type) {
+      if (!audioContext) audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const osc = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(frequency, audioContext.currentTime);
+      gain.gain.setValueAtTime(0.08, audioContext.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.5);
+      osc.connect(gain);
+      gain.connect(audioContext.destination);
+      osc.start();
+      osc.stop(audioContext.currentTime + 0.5);
+    }
+
+    // Interactive SQL Sandbox Logic
+    function runQuery(type) {
+      const display = document.getElementById('sqlDisplay');
+      const result = document.getElementById('sqlResult');
+      if (type === 'icu') {
+        display.innerText = "SELECT count(room_code) * 100.0 / 24 as icu_occupancy FROM admissions WHERE dept_name = 'Intensive Care Unit';";
+        result.innerHTML = `<div class="text-red-400">&gt; Query Executed: 22 occupied beds / 24 total (91.6% ICU Load - Surge protocol active).</div>`;
+      } else if (type === 'admissions') {
+        display.innerText = "SELECT attending_physician, count(patient_id) as active_patients FROM admissions GROUP BY attending_physician;";
+        result.innerHTML = `<div>&gt; Dr. Marcus Vance (ER): 41 | Dr. Sophia Lin (Cardiology): 28 | Dr. Elena Rossi (Ortho): 18</div>`;
+      } else if (type === 'insurance') {
+        display.innerText = "SELECT insurance_carrier, count(*) FROM patients GROUP BY insurance_carrier;";
+        result.innerHTML = `<div>&gt; Horizon BCBS NJ: 44% | Aetna POS: 29% | Medicare Part A/B: 27%</div>`;
+      }
+    }
+
+    // Terminal Emulator
+    function runTerminalCommand(e) {
+      if (e.key === 'Enter') {
+        const input = document.getElementById('termInput');
+        const cmd = input.value.trim().toLowerCase();
+        const out = document.getElementById('termOutput');
+        let res = "";
+
+        if (cmd === 'help') {
+          res = "&gt; Commands: whoami, skills, projects, contact, clear";
+        } else if (cmd === 'whoami') {
+          res = "&gt; Alexys Gomez | MIS Major @ Rutgers Business School Newark.";
+        } else if (cmd === 'skills') {
+          res = "&gt; PostgreSQL, 3NF Normalization, Python, JavaScript, Tailwind CSS, Web Audio API";
+        } else if (cmd === 'projects') {
+          res = "&gt; 1. ApexCare Clinical Portal (3NF DB) | 2. MindfulClassroom (Web Audio)";
+        } else if (cmd === 'contact') {
+          res = "&gt; Email: gomezalexys27@gmail.com | LinkedIn: /in/alexys-gomez-388719335/";
+        } else if (cmd === 'clear') {
+          out.innerHTML = `<p class="text-slate-500">// Shell cleared. Type 'help' for options.</p>`;
+          input.value = '';
+          return;
+        } else if (cmd === '') {
+          return;
+        } else {
+          res = `&gt; Command not found: '${cmd}'. Type 'help' for valid commands.`;
+        }
+
+        out.innerHTML += `<p><span class="text-red-400">guest@alexys:~$</span> ${cmd}</p><p class="text-slate-300">${res}</p>`;
+        input.value = '';
+        out.scrollTop = out.scrollHeight;
+      }
+    }
+  </script>
+</body>
+</html>
